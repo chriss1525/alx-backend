@@ -37,13 +37,18 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        """takes two integer arguments page with default value 1 and page_size
-        with default value 10."""
+        """return the appropriate page of the dataset"""
         assert type(page) == int and type(page_size) == int
         assert page > 0 and page_size > 0
-        start, end = index_range(page, page_size)
-        return [] if (start >= len(self.dataset()) or
-                      end > len(self.dataset())) else self.dataset()[start:end]
+
+        dataset_length = len(self.dataset())
+        total_pages = math.ceil(dataset_length / page_size)
+
+        if page <= total_pages:
+            start, end = index_range(page, page_size)
+            return self.dataset()[start:end]
+        else:
+            return []
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
         """ return a dictionary containing key value pairs of the pagination"""
