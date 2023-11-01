@@ -24,7 +24,7 @@ app.config.from_object(Config)
 @app.route('/', methods=['GET'], strict_slashes=False)
 def index() -> str:
     """ render simple hello world html file """
-    return render_template('2-index.html')
+    return render_template('3-index.html')
 
 
 @babel.localeselector
@@ -35,3 +35,4 @@ def get_locale() -> str:
 
 if __name__ == "__main__":
     app.run()
+
