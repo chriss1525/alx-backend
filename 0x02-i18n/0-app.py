@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'], strict_slashes=False)
 def index():
-    """ render html file """
+    """ render simple hello world html file """
     return render_template('0-index.html')
 
 
