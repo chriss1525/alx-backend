@@ -1,18 +1,16 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-""" simple flask app that renders html file,\
-import Babel and configure our app to use it """
+""" Module for trying out Babel i18n """
 from flask_babel import Babel
-from flask import *
+from flask import Flask, render_template
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 babel = Babel(app)
 
 
 class Config(object):
-    """ Configure available languages in our app """
+    """ Configuration Class for Babel """
 
-    LANGUAGES = ["en", "fr"]
+    LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
@@ -21,9 +19,9 @@ app.config.from_object(Config)
 
 
 @app.route('/', methods=['GET'], strict_slashes=False)
-def index() -> str:
-    """ render simple hello world html file """
-    return render_template('1-index.html')
+def hello_world() -> str:
+    """Renders a Basic Template for Babel Implementation"""
+    return render_template("1-index.html")
 
 
 if __name__ == "__main__":
