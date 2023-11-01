@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """ simple flask app that renders html file,\
 import Babel and configure our app to use it """
 from flask_babel import Babel
-from flask import render_template
+from flask import *
 
 app = Flask(__name__, template_folder='templates')
 babel = Babel(app)
