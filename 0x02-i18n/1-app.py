@@ -3,7 +3,7 @@
 """ simple flask app that renders html file,\
 import Babel and configure our app to use it """
 from flask_babel import Babel
-from flask import *
+from flask import render_template
 
 app = Flask(__name__, template_folder='templates')
 babel = Babel(app)
