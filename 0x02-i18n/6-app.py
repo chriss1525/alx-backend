@@ -36,7 +36,8 @@ def index() -> str:
 
 @babel.localeselector
 def get_locale() -> str:
-    """Get the user's preferred locale following the specified order of priority."""
+    """Get the user's preferred locale \
+        following the specified order of priority."""
 
     # 1. Check if the locale is provided in URL parameters
     locale = request.args.get('locale')
@@ -44,7 +45,8 @@ def get_locale() -> str:
         return locale
 
     # 2. Check the user's settings
-    if hasattr(g, 'user') and 'locale' in g.user and g.user['locale'] in app.config['LANGUAGES']:
+    if hasattr(g, 'user') and 'locale' in g.user and\
+            g.user['locale'] in app.config['LANGUAGES']:
         return g.user['locale']
 
     # 3. Check the request header for accepted languages
