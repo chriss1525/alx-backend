@@ -3,6 +3,7 @@
 // log Redis client connected to the server on error
 
 import { createClient } from 'redis';
+import redis from 'redis';
 
 const client = createClient();
 
